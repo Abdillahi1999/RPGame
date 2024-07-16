@@ -105,19 +105,15 @@ function update(location) {
   button3.onclick = location["button functions"][2];
   text.innerHTML = location.text;
 }
-
 function goTown() {
   update(locations[0]);
 }
-
 function goStore() {
   update(locations[1]);
 }
-
 function goCave() {
   update(locations[2]);
 }
-
 function buyHealth() {
   if (gold >= 10) {
     gold -= 10;
@@ -128,7 +124,6 @@ function buyHealth() {
     text.innerText = "You do not have enough gold to buy health.";
   }
 }
-
 function buyWeapon() {
   if (currentWeapon < weapons.length - 1) {
     if (gold >= 30) {
@@ -148,7 +143,6 @@ function buyWeapon() {
     button2.onclick = sellWeapon;
   }
 }
-
 function sellWeapon() {
   if (inventory.length > 1) {
     gold += 15;
@@ -160,22 +154,18 @@ function sellWeapon() {
     text.innerText = "Don't sell your only weapon!";
   }
 }
-
 function fightSlime() {
   fighting = 0;
   goFight();
 }
-
 function fightBeast() {
   fighting = 1;
   goFight();
 }
-
 function fightDragon() {
   fighting = 2;
   goFight();
 }
-
 function goFight() {
   update(locations[3]);
   monsterHealth = monsters[fighting].health;
@@ -183,7 +173,6 @@ function goFight() {
   monsterName.innerText = monsters[fighting].name;
   monsterHealthText.innerText = monsterHealth;
 }
-
 function attack() {
   text.innerText = "The " + monsters[fighting].name + " attacks.";
   text.innerText += " You attack it with your " + weapons[currentWeapon].name + ".";
@@ -209,21 +198,17 @@ function attack() {
     currentWeapon--;
   }
 }
-
 function getMonsterAttackValue(level) {
   const hit = (level * 5) - (Math.floor(Math.random() * xp));
   console.log(hit);
   return hit > 0 ? hit : 0;
 }
-
 function isMonsterHit() {
   return Math.random() > .2 || health < 20;
 }
-
 function dodge() {
   text.innerText = "You dodge the attack from the " + monsters[fighting].name;
 }
-
 function defeatMonster() {
   gold += Math.floor(monsters[fighting].level * 6.7);
   xp += monsters[fighting].level;
@@ -231,15 +216,12 @@ function defeatMonster() {
   xpText.innerText = xp;
   update(locations[4]);
 }
-
 function lose() {
   update(locations[5]);
 }
-
 function winGame() {
   update(locations[6]);
 }
-
 function restart() {
   xp = 0;
   health = 100;
@@ -251,15 +233,12 @@ function restart() {
   xpText.innerText = xp;
   goTown();
 }
-
 function easterEgg() {
   update(locations[7]);
 }
-
 function pickTwo() {
   pick(2);
 }
-
 function pickEight() {
   pick(8);
 }
